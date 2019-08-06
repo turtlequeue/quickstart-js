@@ -1,0 +1,24 @@
+{
+  "name": "quickstart-js",
+  "version": "1.0.0",
+  "description": "How to use the TurtleQueue SDK",
+  "main": "index.js",
+  "dependencies": {
+    "turtlequeue": "0.0.1"
+  },
+  "devDependencies": {
+    "browser-tap": "0.0.1",
+    "file-loader": "1.1.11",
+    "tap-browser": "0.0.1",
+    "tap-spec": "5.0.0",
+    "tape": "4.9.1",
+    "webpack": "4.16.1",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test:browser": "webpack-dev-server --mode development --config ./webpack.config.js",
+    "test": "node test.js | tap-spec"
+  }
+}

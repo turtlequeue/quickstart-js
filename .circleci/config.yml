@@ -1,0 +1,29 @@
+version: 2
+
+references:
+  workspace_root: &workspace_root
+    /home/circleci/project
+
+  node_image: &node_image
+    circleci/node:9.9
+
+  node_config: &node_config
+    docker:
+      - image: *node_image
+    working_directory: *workspace_root
+
+jobs:
+  build:
+    <<: *node_config
+    steps:
+      - checkout
+
+      - run: ./scripts/pre_test.sh
+
+      - run: ./scripts/test.sh
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
