@@ -4,7 +4,7 @@
   "description": "How to use the TurtleQueue SDK",
   "main": "index.js",
   "dependencies": {
-    "turtlequeue": "0.0.1"
+    "turtlequeue": "0.0.4"
   },
   "devDependencies": {
     "browser-tap": "0.0.1",

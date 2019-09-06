@@ -54,6 +54,8 @@ const q = aTurtleParent.make(opts);
 
 test('turtlequeue connect', {timeout: TURTLEQUEUE_TIMEOUT}, t => {
 
+  q.on('handshake', evt => t.pass('handshake', evt))
+
   q.on('error', evt => t.fail('should not have an error', evt))
 
   q.on('ready', evt => {

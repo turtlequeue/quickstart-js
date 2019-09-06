@@ -5,7 +5,7 @@ references:
     /home/circleci/project
 
   node_image: &node_image
-    circleci/node:9.9
+    circleci/node:10.16
 
   node_config: &node_config
     docker:
