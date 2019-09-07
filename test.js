@@ -121,7 +121,7 @@ test('turtlequeue pubsub', {timeout: TURTLEQUEUE_TIMEOUT}, async t => {
       },
     },
     (err, data, metadata) => {
-      if (err) t.fail('pubslish cb err')
+      if (err) t.fail('publish cb err')
       if(data.publishedCount === 1) t.pass('published to 1')
     },
   ).then((data) => t.pass('published'))
