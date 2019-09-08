@@ -21,8 +21,7 @@ const TURTLEQUEUE_TIMEOUT = process.env.TURTLEQUEUE_TIMEOUT || 10000;
 test('test setup', t => {
 
   process.on('unhandledRejection', error => {
-    console.log('unhandledRejection', error.message);
-    t.fail('unhandledRejection')
+    t.fail('unhandledRejection' + error)
   });
 
   if(!TURTLEQUEUE_USER_TOKEN) {
@@ -56,7 +55,7 @@ test('turtlequeue connect', {timeout: TURTLEQUEUE_TIMEOUT}, t => {
 
   q.on('handshake', evt => t.pass('handshake', evt))
 
-  q.on('error', evt => t.fail('should not have an error', evt))
+  q.on('error', (err) => t.fail('should not have an error' + err))
 
   q.on('ready', evt => {
     t.pass('ready')
@@ -89,7 +88,7 @@ test('turtlequeue pubsub', {timeout: TURTLEQUEUE_TIMEOUT}, async t => {
     d: new Date()
   }
 
-  q.on('error', evt => t.fail('should not have an error'))
+  q.on('error', err => t.fail('should not have an error' + err))
 
   const subscriptionRes = await q.subscribe(
     {
@@ -102,11 +101,11 @@ test('turtlequeue pubsub', {timeout: TURTLEQUEUE_TIMEOUT}, async t => {
       },
     },
     (err, data, metadata) => {
-      if (err) t.fail('subscribe cb err')
+      if (err) t.fail('subscribe cb err' + err)
       t.deepEqual(data, message, 'should receive the message')
       t.end()
     }
-  ).catch((err) => t.fail('subscribe failed'))
+  ).catch((err) => t.fail('subscribe failed' + err))
 
   subscriptionId = subscriptionRes.data.id;
 
@@ -121,24 +120,25 @@ test('turtlequeue pubsub', {timeout: TURTLEQUEUE_TIMEOUT}, async t => {
       },
     },
     (err, data, metadata) => {
-      if (err) t.fail('pubslish cb err')
+      if (err) t.fail('publish cb err' + err)
+
       if(data.publishedCount === 1) t.pass('published to 1')
     },
   ).then((data) => t.pass('published'))
-   .catch((err) => t.fail('publish failed'))
+   .catch((err) => t.fail('publish failed' + err))
 
 })
 
 test('turtlequeue reader', {timeout: TURTLEQUEUE_TIMEOUT}, async t => {
 
   const reader = await q.reader({subscriptionId: subscriptionId,
-                               startMessageId: "earliest"})
+                                 startMessageId: "earliest"})
         .then(reader => {
           t.pass('create reader')
           return reader
         })
         .catch(err => {
-          t.fail('cannot create reader')
+          t.fail('cannot create reader' + err)
         });
 
    await reader.readNext()
@@ -147,12 +147,12 @@ test('turtlequeue reader', {timeout: TURTLEQUEUE_TIMEOUT}, async t => {
           t.end()
         })
         .catch(err => {
-          t.fail('reader: cannot read next')
+          t.fail('reader: cannot read next' + err)
         });
 })
 
 test('turtlequeue disconnect', {timeout: TURTLEQUEUE_TIMEOUT},  async t => {
-  q.on('error', evt => t.fail('should not have an error'))
+  q.on('error', err => t.fail('should not have an error' + err))
 
   q.on('disconnect', evt => {
     t.pass('disconnected')
