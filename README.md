@@ -4,7 +4,7 @@ How to TurtleQueue in JS
 
 # Usage
 
-Export you Api Key, and User Token, found in [the dashboard](https://turtlequeue.com/dashboard/security.html)
+Export your Api Key, and User Token, found in [the dashboard](https://turtlequeue.com/dashboard/security.html)
 
 ```sh
 export TURTLEQUEUE_USER_TOKEN="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
