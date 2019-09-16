@@ -1,8 +1,28 @@
-# Quickstart JS
+<p align="center">
+  <img alt="turtlequeue" src="https://turtlequeue.com/logo_black.png" width="230">
+</p>
 
-How to TurtleQueue in JS
+<h3 align="center">TurtleQueue</h3>
 
-# Usage
+
+[![asciicast](https://asciinema.org/a/ltJs8T75RVszyyG2YnMkqtHY0.svg)](https://asciinema.org/a/ltJs8T75RVszyyG2YnMkqtHY0)
+
+# Features
+
+- topic-based routing
+- messages can be replayed
+- optional geolocation-based routing
+- optional content-based routing
+
+# Examples
+
+
+Bite-sized examples are available in the `example/` folder.
+```
+hashtag('showmethecode')
+```
+
+# Tests
 
 Export your Api Key, and User Token, found in [the dashboard](https://turtlequeue.com/dashboard/security.html)
 
@@ -10,31 +30,6 @@ Export your Api Key, and User Token, found in [the dashboard](https://turtlequeu
 export TURTLEQUEUE_USER_TOKEN="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 export TURTLEQUEUE_API_KEY="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
-
-Run:
-
-`node index.js`
-
-
-# Multiple consumers
-
-In a terminal:
-```sh
- export TURTLEQUEUE_DEMO_ROLE=PRODUCER
- export TURTLEQUEUE_DEMO_CHANNEL=sometestchannel
- node index.js
-```
-
-Then do the same in another terminal, but this time launch a new consumer.
-Repeat this as much as you want.
-
-```sh
- export TURTLEQUEUE_DEMO_ROLE=CONSUMER
- export TURTLEQUEUE_DEMO_CHANNEL=sometestchannel
- node index.js
-```
-
-# Tests
 
 run `npm run test:browser` visit http://localhost:8083, open the console
 
