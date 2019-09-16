@@ -33,7 +33,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {name: 'index.html'},
+            options: { name: 'index.html' },
           },
         ],
       },
