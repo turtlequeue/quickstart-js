@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="turtlequeue" src=""https://turtlequeue.com/logo_black.png width="230">
+  <img alt="turtlequeue" src="https://turtlequeue.com/logo_black.png" width="230">
 </p>
 
 <h3 align="center">TurtleQueue</h3>
