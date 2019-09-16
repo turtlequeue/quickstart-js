@@ -6,6 +6,8 @@
 
 # CLI PubSub example
 
+[![asciicast](https://asciinema.org/a/ltJs8T75RVszyyG2YnMkqtHY0.svg)](https://asciinema.org/a/ltJs8T75RVszyyG2YnMkqtHY0)
+
 This is an example of command-line scripts: one for publishing, and one for subscribing.
 
 Probably the most commonly used pattern, publish/subscribe allows decoupling producers of messages and consumers of messages as they do not need to know about each other. Instead messages are dynamically routed according to specific criteria (#channel, geolocation etc.)
