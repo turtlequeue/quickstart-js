@@ -17,6 +17,8 @@ These are the building blocks of your messaging infrastructure.
 
 - describe: demonstrates how the SDK's state can be queried
 - geolocation: demonstrates how to send messages based on a specific geolocation [WIP]
+- point-to-point: reach another single turtlequeue client directly [WIP]
+- single subscription: avoid creating a new subscription every time, but reuse it instead [WIP]
 
 ## Communication patterns
 
