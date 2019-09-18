@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/turtlequeue/quickstart-js.svg?style=svg)](https://circleci.com/gh/turtlequeue/quickstart-js)
+
 <p align="center">
   <img alt="turtlequeue" src="https://turtlequeue.com/logo_black.png" width="230">
 </p>
