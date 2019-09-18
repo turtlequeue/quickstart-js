@@ -7,7 +7,7 @@
 # Single subscription
 
 In a classic publish/subscribe scenario all subscribers receive all the messages sent to a particular topic.
-Sometimes it is desirable to
+Sometimes it is desirable to have
 
 The trick here is to reuse the same `subscriptionId`, like so:
 ```

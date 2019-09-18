@@ -18,7 +18,12 @@ program.parse(process.argv)
 
 const q = aTurtleParent.make()
 
-const uniqueSubscriptionId = 'someUniqueId2';
+//
+// give a subscription an `id`
+// this allows you to find it back later instead of creating a new subscription
+// and eventually resume consuming from the exact same subscription
+//
+const uniqueSubscriptionId = 'someUniqueId';
 
 const subscribe = function subscribe() {
   // NOTE: when using an id the rest of the parameters cannot be changed later on
