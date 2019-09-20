@@ -2,8 +2,12 @@ const aTurtleParent = require('turtlequeue').create
 const websocket = require('websocket')
 const program = require('commander')
 
+
 const USER_TOKEN = process.env.TURTLEQUEUE_USER_TOKEN
 const API_KEY = process.env.TURTLEQUEUE_API_KEY
+const TURTLEQUEUE_HOST = process.env.TURTLEQUEUE_HOST || 'turtlequeue.com'
+const TURTLEQUEUE_PROTOCOL = process.env.TURTLEQUEUE_PROTOCOL || 'https'
+const TURTLEQUEUE_TYPE = process.env.TURTLEQUEUE_TYPE || 'ws'
 
 console.log('Hello TurtleQueue')
 
@@ -23,7 +27,11 @@ program.parse(process.argv)
 
 console.log(program.opts())
 
-const q = aTurtleParent.make()
+const q = aTurtleParent.make({
+  host: TURTLEQUEUE_HOST,
+  type: TURTLEQUEUE_TYPE,
+  protocol: TURTLEQUEUE_PROTOCOL,
+})
 
 const publish = function publish() {
   console.log('Publishing!')

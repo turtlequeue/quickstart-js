@@ -18,6 +18,7 @@ if (!API_KEY) {
 }
 
 program.option('-c, --channel <topic>', 'the topic you wish to subscribe to')
+       .option('-i, --id <id>', 'the subscription name you wish to use');
 program.parse(process.argv)
 
 const q = aTurtleParent.make({
@@ -31,13 +32,11 @@ const q = aTurtleParent.make({
 // this allows you to find it back later instead of creating a new subscription
 // and eventually resume consuming from the exact same subscription
 //
-const uniqueSubscriptionId = 'someUniqueId';
-
 const subscribe = function subscribe() {
   // NOTE: when using an id the rest of the parameters cannot be changed later on
   return q.subscribe(
     {
-      id: uniqueSubscriptionId,
+      id: program.id,
       channel: program.channel
     },
     (err, data, metadata) => {
@@ -86,7 +85,7 @@ async function* readAllFromReader(reader) {
 
 async function replayAll() {
   var msgs = [];
-  return q.reader({ subscriptionId: uniqueSubscriptionId, startMessageId: 'earliest' })
+  return q.reader({ subscriptionId: program.id, startMessageId: 'earliest' })
     .then(async function (reader) {
       for await (const msg of readAllFromReader(reader)) {
         msgs.push(msg);
@@ -95,7 +94,7 @@ async function replayAll() {
         console.log('There were ' + msgs.length + ' previous messages');
         console.log(msgs.map(m => m.data))
       } else {
-        console.log('No previous messages for this subscription')
+        console.log('No previous messages for this subscription', program.id, program.channel)
       }
 
       })
