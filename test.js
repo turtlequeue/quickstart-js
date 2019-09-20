@@ -52,7 +52,7 @@ console.log('Connecting with ', JSON.stringify(opts, null, 2))
 
 const q = aTurtleParent.make(opts)
 
-test('turtlequeue connect', { timeout: TURTLEQUEUE_TIMEOUT }, t => {
+test('turtlequeue connect', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
   q.on('handshake', evt => t.pass('handshake', evt))
 
   q.on('error', err => t.fail('should not have an error' + err))
@@ -70,13 +70,14 @@ test('turtlequeue connect', { timeout: TURTLEQUEUE_TIMEOUT }, t => {
 
   t.pass('init')
 
-  q.connect({
+  await q.connect({
     userToken: TURTLEQUEUE_USER_TOKEN,
     apiKey: TURTLEQUEUE_API_KEY,
-  })
+  }).then(data => t.pass('connected promise'))
+    .catch(err => t.fail('connected err ' + err))
 
-  t.pass('connecting')
 })
+
 
 var subscriptionId
 
