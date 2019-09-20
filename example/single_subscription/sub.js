@@ -2,8 +2,12 @@ const aTurtleParent = require('turtlequeue').create
 const websocket = require('websocket')
 const program = require('commander')
 
+
 const USER_TOKEN = process.env.TURTLEQUEUE_USER_TOKEN
 const API_KEY = process.env.TURTLEQUEUE_API_KEY
+const TURTLEQUEUE_HOST = process.env.TURTLEQUEUE_HOST || 'turtlequeue.com'
+const TURTLEQUEUE_PROTOCOL = process.env.TURTLEQUEUE_PROTOCOL || 'https'
+const TURTLEQUEUE_TYPE = process.env.TURTLEQUEUE_TYPE || 'ws'
 
 if (!USER_TOKEN) {
   console.log('Missing USER_TOKEN')
@@ -16,7 +20,11 @@ if (!API_KEY) {
 program.option('-c, --channel <topic>', 'the topic you wish to subscribe to')
 program.parse(process.argv)
 
-const q = aTurtleParent.make()
+const q = aTurtleParent.make({
+  host: TURTLEQUEUE_HOST,
+  type: TURTLEQUEUE_TYPE,
+  protocol: TURTLEQUEUE_PROTOCOL,
+})
 
 //
 // give a subscription an `id`
@@ -60,7 +68,7 @@ q.on('disconnect', evt => {
 
 q.connect({
   userToken: USER_TOKEN,
-  apiKey: API_KEY,
+  apiKey: API_KEY
 })
 console.log('Connecting...')
 
