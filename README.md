@@ -16,7 +16,7 @@
 - optional geolocation-based routing
 - optional content-based routing
 - automatic reconnection
--
+
 
 # Examples
 
