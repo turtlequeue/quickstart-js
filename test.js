@@ -70,14 +70,14 @@ test('turtlequeue connect', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
 
   t.pass('init')
 
-  await q.connect({
-    userToken: TURTLEQUEUE_USER_TOKEN,
-    apiKey: TURTLEQUEUE_API_KEY,
-  }).then(data => t.pass('connected promise'))
+  await q
+    .connect({
+      userToken: TURTLEQUEUE_USER_TOKEN,
+      apiKey: TURTLEQUEUE_API_KEY,
+    })
+    .then(data => t.pass('connected promise'))
     .catch(err => t.fail('connected err ' + err))
-
 })
-
 
 var subscriptionId
 
