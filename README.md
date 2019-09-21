@@ -21,7 +21,7 @@
 # Examples
 
 
-Bite-sized examples are available in the `example/` folder.
+Bite-sized examples are available in the [example/](example/) folder.
 ```
 hashtag('showmethecode')
 ```
