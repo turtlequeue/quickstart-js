@@ -15,11 +15,13 @@
 - messages can be replayed
 - optional geolocation-based routing
 - optional content-based routing
+- automatic reconnection
+
 
 # Examples
 
 
-Bite-sized examples are available in the `example/` folder.
+Bite-sized examples are available in the [example/](example/) folder.
 ```
 hashtag('showmethecode')
 ```
