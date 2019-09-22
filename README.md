@@ -39,6 +39,13 @@ run `npm run test:browser` visit http://localhost:8083, open the console
 
 alternatively run `npm run test` to run the same test in node
 
+# Contributors
+
+- [nha](https://github.com/nha)
+- [Platane](https://github.com/Platane)
+- [mookiejones](https://github.com/mookiejones)
+
+
 # Questions/support
 
 Feel free to [get in touch](https://turtlequeue.com/doc/latest/get_help.html)!
