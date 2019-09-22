@@ -94,13 +94,15 @@ q.connect({
 console.log('Connecting...');
 
 const describe = function describe() {
+        console.log('---------------------');
 	console.log('connectionState', q.connectionState());
 	console.log('authStatus', q.authStatus());
 	console.log('listSubscriptions', q.listSubscriptions());
 	console.log('listHandlers', q.listHandlers());
+        console.log('---------------------');
 };
 
-// setInterval(describe, 5000);
+setInterval(describe, 5000);
 
 setTimeout(() => {
 	console.log('Disconnecting after 40 secs');
