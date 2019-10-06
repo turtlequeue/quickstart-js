@@ -20,6 +20,7 @@ const q = aTurtleParent.make({
   host: 'turtlequeue.localhost',
   type: 'ws',
   protocol: 'http',
+  'callback-timeout': 30000 //seconds
 })
 
 
@@ -40,18 +41,29 @@ program.parse(process.argv)
 
 console.log(program.opts())
 
+if(!program.numMessages) {
+  throw 'Missing or invalid argument --num-messages, must be a number'
+}
+
+var msgAck = 0;
 
 const publish = function publish(msg) {
   console.time(msg.num)
   console.log('Publishing', msg.num);
+
   q.publish(
     {
       payload: msg,
       channel: program.channel
     }
   ).then(data => {
-    console.log('Published', msg.num);
-    console.timeEnd(msg.num)
+    console.log('Published', data, msg.num);
+    console.timeEnd(msg.num);
+    msgAck++;
+    if (msgAck === program.numMessages) {
+      console.log('All messages acknowledged')
+      process.exit();
+    }
   })
    .catch(err => console.log('publish promise err', err))
 }

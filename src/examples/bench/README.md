@@ -23,13 +23,13 @@ This has to be done for __*every*__ new terminal.
 
 In one terminal:
 ```
-node src/examples/bench/consumer.js --channel "benchmark"
+node src/examples/bench/consumer.js --channel benchmark --num-messages 10 --subscriber-id bench
 
 ```
 
 In another terminal/device:
 ```
-node src/examples/bench/producer.js --channel benchmark --payload-size "1KB" --num-messages 1000
+node src/examples/bench/producer.js --channel benchmark --payload-size "1024" --num-messages 10
 ```
 
 Adapt it to match your use case more closely and see if the numbers are good enough :)

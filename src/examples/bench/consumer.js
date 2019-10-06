@@ -17,7 +17,8 @@ if (!API_KEY) {
 
 program
   .option('-c, --channel <topic>', 'the topic you wish to publish to')
-  .option('-n, --num-messages <number>', 'how many messages you wish to receive', parseInt);
+  .option('-n, --num-messages <number>', 'how many messages you wish to receive', parseInt)
+  .option('-i, --subscriber-id <string>', 'Optional subscriber id');
 
 program.parse(process.argv)
 
@@ -32,8 +33,9 @@ const q = aTurtleParent.make({
 var count = 0;
 
 const subscribe = function subscribe() {
+
   return q.subscribe(
-    { id: "bench", // optional
+    { id: program.subscriberId ,
       channel: program.channel
     },
     (err, data, metadata) => {
