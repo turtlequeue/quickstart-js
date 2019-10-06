@@ -87,6 +87,7 @@ test('turtlequeue pubsub', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
     b: true,
     n: [1.2, null, Infinity],
     d: new Date(),
+    blob: Buffer.from(new ArrayBuffer(10), {type: 'application/octet-stream'}),
   }
 
   q.on('error', err => t.fail('should not have an error' + err))

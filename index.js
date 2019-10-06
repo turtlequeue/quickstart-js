@@ -21,7 +21,7 @@ const q = aTurtleParent.make({
 })
 
 const channel =
-  process.env.TURTLEQUEUE_DEMO_CHANNEL || '#test-node-' + new Date().getTime()
+  process.env.TURTLEQUEUE_DEMO_CHANNEL || '#bench-node-' + new Date().getTime()
 
 var pubId = 0
 const publish = function publish() {
