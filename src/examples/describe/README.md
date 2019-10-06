@@ -24,7 +24,7 @@ export TURTLEQUEUE_API_KEY="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 This has to be done for __*every*__ new terminal.
 
 ```
-node examples/describe/index.js
+node src/exampless/describe/index.js
 ```
 
 Observe the output of the describe function:
