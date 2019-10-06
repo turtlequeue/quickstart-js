@@ -1,0 +1,4 @@
+# in quickstart-js
+# - set up a modules/ROOT/pages structure with an antora.yml at the base
+# - include a reference to it in your site.yml with another -url:.
+# This makes quickstart-js into an additional component. Look into the xref structure to see how to include this in navigation.
