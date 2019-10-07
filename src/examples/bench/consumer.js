@@ -39,14 +39,16 @@ const subscribe = function subscribe() {
       channel: program.channel
     },
     (err, data, metadata) => {
+      count++;
+
       console.log('received', data.num, "( ", count, "/ ", program.numMessages, ")" );
 
-      if (count === 0 ) {
+      if (count === 1 ) {
         console.time('msg')
       } else if (count === program.numMessages) {
         console.timeEnd('msg')
       }
-      count++;
+
     }
   )
 }
