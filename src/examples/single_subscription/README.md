@@ -35,11 +35,11 @@ subscribe(
 # Usage
 
 ```
-node example/single_subscription/sub.js --channel "#singlesub"
+node src/examples/single_subscription/sub.js --channel "#singlesub"
 ```
 
 ```
-node example/single_subscription/pub.js --channel "#singlesub" --message
+node src/examples/single_subscription/pub.js --channel "#singlesub" --message
 ```
 
 Feel free to play around, changing the message content of the producer or replacing the channel with the same `subscriptionId`
@@ -53,21 +53,21 @@ Feel free to play around, changing the message content of the producer or replac
 terminal 1
 ```
 echo "Subscribing"
-node example/single_subscription/sub.js --channel "#single-sub" --id "round-robin"
+node src/examples/single_subscription/sub.js --channel "#single-sub" --id "round-robin"
 ```
 
 terminal 2
 ```
 echo "Subscribing"
-node example/single_subscription/sub.js --channel "#single-sub" --id "round-robin"
+node src/examples/single_subscription/sub.js --channel "#single-sub" --id "round-robin"
 ```
 
 terminal 3
 ```
 echo "Publishing 5 messages"
-node example/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 1"
-node example/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 2"
-node example/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 3"
-node example/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 4"
-node example/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 5"
+node src/examples/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 1"
+node src/examples/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 2"
+node src/examples/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 3"
+node src/examples/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 4"
+node src/examples/single_subscription/pub.js --channel "#single-sub" --message "somethinghere 5"
 ```
