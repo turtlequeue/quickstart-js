@@ -1,7 +1,7 @@
 [.text-center]
-
 image:https://turtlequeue.com/logo_black.png[alt=TurtleQueue Logo, width=230]
 
+[.text-center]
 === TurtleQueue
 
 = Request response
