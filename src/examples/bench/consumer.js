@@ -1,19 +1,9 @@
 const aTurtleParent = require('turtlequeue').create
 const program = require('commander')
 require('websocket')
-
-const USER_TOKEN = process.env.TURTLEQUEUE_USER_TOKEN
-const API_KEY = process.env.TURTLEQUEUE_API_KEY
+const config = require('../../config.js');
 
 console.log('Hello TurtleQueue')
-
-if (!USER_TOKEN) {
-  console.log('Missing USER_TOKEN')
-}
-
-if (!API_KEY) {
-  console.log('Missing API_KEY')
-}
 
 program
   .option('-c, --channel <topic>', 'the topic you wish to publish to')
@@ -24,11 +14,7 @@ program.parse(process.argv)
 
 console.log(program.opts())
 
-const q = aTurtleParent.make({
-  host: 'turtlequeue.localhost',
-  type: 'ws',
-  protocol: 'http',
-})
+const q = aTurtleParent.make(config.turtleConfig)
 
 var count = 0;
 
@@ -69,9 +55,6 @@ q.on('disconnect', evt => {
   console.log('Disconnected')
 })
 
-q.connect({
-  userToken: USER_TOKEN,
-  apiKey: API_KEY,
-})
+q.connect(config.connectConfig)
 
 console.log('Connecting...')

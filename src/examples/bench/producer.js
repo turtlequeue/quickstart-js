@@ -64,6 +64,7 @@ const publish = function publish(msg) {
       console.log('All messages acknowledged')
       process.exit();
     }
+
   })
    .catch(err => console.log('publish promise err', err))
 }
