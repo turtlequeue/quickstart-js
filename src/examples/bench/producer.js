@@ -2,26 +2,12 @@ const aTurtleParent = require('turtlequeue').create
 const program = require('commander')
 const crypto = require('crypto')
 require('websocket')
-
-const USER_TOKEN = process.env.TURTLEQUEUE_USER_TOKEN
-const API_KEY = process.env.TURTLEQUEUE_API_KEY
+const config = require('../../config.js');
 
 console.log('Hello TurtleQueue')
 
-if (!USER_TOKEN) {
-  console.log('Missing USER_TOKEN')
-}
-
-if (!API_KEY) {
-  console.log('Missing API_KEY')
-}
-
-const q = aTurtleParent.make({
-  host: 'turtlequeue.localhost',
-  type: 'ws',
-  protocol: 'http',
-  'callback-timeout': 30000 //seconds
-})
+config.turtleConfig.callbackTimeout = 30000 // ms - necessary for bigger messages
+const q = aTurtleParent.make(config.turtleConfig)
 
 
 program
@@ -64,6 +50,7 @@ const publish = function publish(msg) {
       console.log('All messages acknowledged')
       process.exit();
     }
+
   })
    .catch(err => console.log('publish promise err', err))
 }
@@ -105,8 +92,5 @@ q.on('disconnect', evt => {
   process.exit()
 })
 
-q.connect({
-  userToken: USER_TOKEN,
-  apiKey: API_KEY,
-})
+q.connect(config.connectConfig)
 console.log('Connecting...')
