@@ -1,17 +1,10 @@
-[.text-center]
-image:https://turtlequeue.com/logo_black.png[alt=TurtleQueue Logo, width=230]
-
-[.text-center]
-=== TurtleQueue
-
-pass:[
 <p align="center">
   <img alt="turtlequeue" src="https://turtlequeue.com/logo_black.png" width="230">
 </p>
 
 <h3 align="center">TurtleQueue</h3>
-]
-= Request response
+
+# Request response
 
 Also known as Remote procedure call (RPC).
 This pattern is useful when you want to ask for a computation to be done on another specific node.
