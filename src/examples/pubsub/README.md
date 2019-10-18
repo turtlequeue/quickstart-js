@@ -31,13 +31,13 @@ This has to be done for __*every*__ new terminal.
 
 On the terminal 1, we will open a subscriber that will consume the messages on the given channel `#pubsub-example`.
 
-`node src/exampless/pubsub/sub.js --channel "#pubsub-example"`
+`node src/examples/pubsub/sub.js --channel "#pubsub-example"`
 
 ### publisher
 
 On the terimal 2, we will publish some messages to the above channel.
 
-`node src/exampless/pubsub/pub.js --channel "#pubsub-example" --message "Hello (date +"%T")"`
+`node src/examples/pubsub/pub.js --channel "#pubsub-example" --message "Hello (date +"%T")"`
 
 Since the subscriber is "listening" to the above channel, it will receive the messages.
 This can of course repeated as many times as desired.
