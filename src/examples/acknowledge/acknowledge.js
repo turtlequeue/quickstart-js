@@ -8,19 +8,23 @@ console.log('Hello TurtleQueue')
 config.turtleConfig.autoAck = false;
 const tConfig = config.turtleConfig;
 
-console.log('TCONF = ', tConfig)
-
 const q = aTurtleParent.make(tConfig)
-const channel = '#test-ack'
+const channel = '#test-ack-' + getRandomInt(0, 100000)
 
 var count = 0;
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function coinFlip() {
   return (Math.floor(Math.random() * 2) == 0);
 }
 
 const publish = function publish() {
-  console.log('Publishing!')
+  console.log('Publishing!', "message " + count)
 
   q.publish({
     payload: "message " + count,
@@ -56,10 +60,9 @@ const subscribe = function subscribe() {
 q.on('ready', evt => {
   console.log('Ready', evt)
 
-  publish()
   setInterval(publish, 5000)
 
- subscribe()
+  subscribe()
     //.then(data => console.log('subscribe promise', data))
     .catch(err => console.log('subscribe promise err', err))
 
