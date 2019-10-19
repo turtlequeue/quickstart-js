@@ -9,7 +9,10 @@ config.turtleConfig.autoAck = false;
 const tConfig = config.turtleConfig;
 
 const q = aTurtleParent.make(tConfig)
-const channel = '#test-ack-' + getRandomInt(0, 100000)
+const rId = getRandomInt(0, Number.MAX_SAFE_INTEGER);
+const channel = '#test-ack-' + rId
+
+console.log('channel', channel);
 
 var count = 0;
 
@@ -41,7 +44,7 @@ const publish = function publish() {
 const subscribe = function subscribe() {
 
   return q.subscribe(
-    { id: 'ackTestSub',
+    { id: 'ackTestSub' + rId,
       channel: channel
     },
     (err, data, metadata) => {

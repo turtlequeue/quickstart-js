@@ -167,7 +167,7 @@ test('turtlequeue disconnect', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
 
   t.assert(q.connectionState()['isOpen'], 'should be connected at this point')
 
-  q.disconnect()
+  await q.disconnect()
 
   t.assert(
     !q.connectionState()['open?'],
@@ -176,5 +176,9 @@ test('turtlequeue disconnect', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
 
   // I feel like this is cheating :{
   t.end()
-  if (typeof process.exit !== 'undefined') process.exit()
+
+  setTimeout(() => {
+    if (typeof process.exit !== 'undefined') process.exit()
+  }, 1000);
+
 })
