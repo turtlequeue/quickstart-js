@@ -113,6 +113,8 @@ test('turtlequeue pubsub', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
 
   subscriptionId = subscriptionRes.data.id
 
+  if(subscriptionId) { t.pass('subscriptionId') }
+
   await q
     .publish(
       {
