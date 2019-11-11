@@ -44,6 +44,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.TURTLEQUEUE_USER_TOKEN': `"${process.env.TURTLEQUEUE_USER_TOKEN}"`,
       'process.env.TURTLEQUEUE_API_KEY': `"${process.env.TURTLEQUEUE_API_KEY}"`,
+      'process.env.TURTLEQUEUE_HOST': `"${process.env.TURTLEQUEUE_HOST}"`,
+      'process.env.TURTLEQUEUE_TYPE': `"${process.env.TURTLEQUEUE_TYPE}"`,
+      'process.env.TURTLEQUEUE_PROTOCOL': `"${process.env.TURTLEQUEUE_PROTOCOL}"`
     }),
   ],
 

@@ -7,7 +7,7 @@
     "commander": "^3.0.1",
     "install": "^0.13.0",
     "prettier": "^1.18.2",
-    "turtlequeue": "0.0.16"
+    "turtlequeue": "0.0.17"
   },
   "devDependencies": {
     "browser-tap": "0.0.1",
