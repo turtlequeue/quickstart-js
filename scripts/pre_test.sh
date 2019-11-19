@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-yarn install
+yarn install --production=false
