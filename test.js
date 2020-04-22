@@ -2,7 +2,10 @@ const test_ = require('tape')
 // as browser-tap is weirdly bundled, ensure compatibility between node and browser
 const test = test_.default || test_
 
+console.log('TQUEUE', require('turtlequeue'))
+console.log('TQUEUE', require('turtlequeue').create)
 const api = require('turtlequeue').api
+
 console.log('Testing version', {
   version: api.version,
   commitVersion: api.commitVersion,
@@ -99,8 +102,7 @@ test('turtlequeue pubsub', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
         location: {
           radius: '50km',
           lon: 2.3522,
-          lat: 48.8566,
-          annotation: 'Paris',
+          lat: 48.8566
         },
       },
       (err, data, metadata) => {
@@ -120,8 +122,7 @@ test('turtlequeue pubsub', { timeout: TURTLEQUEUE_TIMEOUT }, async t => {
         channel: channel,
         location: {
           lon: 2.1204,
-          lat: 48.8049,
-          annotation: 'Versailles',
+          lat: 48.8049
         },
       },
       (err, data, metadata) => {
