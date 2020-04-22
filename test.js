@@ -2,8 +2,6 @@ const test_ = require('tape')
 // as browser-tap is weirdly bundled, ensure compatibility between node and browser
 const test = test_.default || test_
 
-console.log('TQUEUE', require('turtlequeue'))
-console.log('TQUEUE', require('turtlequeue').create)
 const api = require('turtlequeue').api
 
 console.log('Testing version', {
